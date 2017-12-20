@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="logOut waves-effect waves-light btn logOut">Log Out</div>
+	</div>
+	<div class="container">
+		<div>
+			<table>
+			 	<thead>
+				    <tr>
+				    	<th><label class="active" for="item_Picture">Item Picture</label></th>
+				        <th><label class="active" for="item_Name">Item Name</label></th>
+				        <th><label class="active" for="item_Price">Item Price</label></th>
+				        <th><label class="active" for="item_Quantity">Item Quantity</label></th>
+				    </tr>
+				</thead>
+				<tbody class="foodDetails">
+				    <tr>
+				    	<td><input type="text" id="item_Picture" placeholder="Item Picture Link"></td>
+				     	<td><input type="text" id="item_Name" placeholder="Item Name"></td>
+				     	<td><input type="text" id="item_Price" placeholder="Item Price"></td>
+				     	<td><input type="text" id="item_Quantity" placeholder="Item Quantity"></td>
+				     	<td></td>
+				    </tr>
+				</tbody>
+			</table>
+
+			<button class="addItem waves-light btn modal-trigger">Add Item</button>
+		</div>
+	</div>
+
+	<script src="restaurant.js"></script>
+
+</body>
+</html>
