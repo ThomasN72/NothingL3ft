@@ -10,17 +10,17 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
   <!-- local CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 
   
 </head>
-<body>
+<body id="results">
 <!-- Nav Bar -->
 	<div class="navbar-fixed ">
   <nav>
     <div class="nav-wrapper blue-grey">
-      <a href="index.html" class="brand-logo deep-orange-text text-lighten-2" style="text-decoration:none">Nothing Left</a>
+      <a href="index.html" id="logo" class="brand-logo deep-orange-text text-lighten-2">NothingL3ft</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
       	<li><a href="login.html" class="btn waves-effect waves-light deep-orange lighten-2">Login</a></li>
@@ -30,7 +30,7 @@
        <form class=" hide-on-med-and-down" id="form1" >
         <div class="input-field" style="max-width: 400pt;">
           <input id="search" type="search" required onkeyup="getBlogs(this.value,0);">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <label class="label-icon" for="search"></label>
           <i class="material-icons">close</i>
           <div id="searchResults" ></div>
         </div>
@@ -92,6 +92,6 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKLvcypZ9bmiAHFyHxIN1RgOuIjd0wJZ8&callback=initMap">
   </script>
   <!-- local JS -->
-  <script src="../googleAPI/Google-API-Testing/assets/app.js"></script>
+  <script src="assets/javascript/app.js"></script>
 </body>
 </html>

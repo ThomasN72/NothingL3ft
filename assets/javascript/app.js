@@ -1,7 +1,12 @@
+$(document).ready(function(){
+  $('.carousel').carousel();
+})
+
 //this function creates the map; it needs the css styling to render
   var map, infoWindow;
   var markers = [];
   var pos;
+
   
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {

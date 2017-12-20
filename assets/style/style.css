@@ -1,6 +1,16 @@
 /*body {
 	background-image: url("../background.jpg");
 }*/
+body {
+  background-color:#555;
+}
+
+.navbar-fixed {
+  position: absolute;
+  z-index:999999999;
+}
+
+
 #form1{
   margin-left:200px;
 }
@@ -28,10 +38,19 @@
 	background-size: cover;
 }
 
+#results {
+  background-image: url("../images/james-sutton-198871.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
 #logo{
   font-family: 'Architects Daughter', cursive;
   padding-left: 2%;
+  text-shadow: 3px 5px 6px rgba(0,0,0,0.4);
 }
+
 nav{
   color: black;
 }
