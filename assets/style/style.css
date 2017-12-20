@@ -24,6 +24,30 @@
 	text-align: center;
 }
 #backgroundImg {
-	background-image: url("background1.jpg");
+	background-image: url("../images/brandon-morgan-105310.jpg");
 	background-size: cover;
+}
+
+#logo{
+  font-family: 'Architects Daughter', cursive;
+  padding-left: 2%;
+}
+nav{
+  color: black;
+}
+
+input#search{
+  padding-left: 10px;
+}
+    
+#map {
+  height: 400px;
+  width: 400px;
+  margin-left: 5%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
