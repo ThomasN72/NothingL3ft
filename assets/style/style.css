@@ -60,13 +60,25 @@ input#search{
 }
     
 #map {
-  height: 400px;
-  width: 400px;
+  height: 375px;
+  width: 375px;
   margin-left: 5%;
+  border-radius: 3px;
+  box-shadow: 3px 5px 6px rgba(0,0,0,0.4);
 }
-/* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+
+.carousel-item {
+  width: 1.25rem;
+  height: 1rem;
+  border-radius: 5px;
+  box-shadow: 3px 5px 6px rgba(0,0,0,0.4);
 }
+
+.carousel .carousel-item {
+  width: 265px;
+  height: 265px;
+}
+
+
+
+
