@@ -15,7 +15,7 @@ body {
   margin-left:200px;
 }
 #form2{
-  margin: 20% 30% 0% 30%;
+  margin: 35% 60% 0% 5%;
 }
 .side-nav li a {
   text-decoration:none;
@@ -39,7 +39,7 @@ body {
 }
 
 #results {
-  background-image: url("../images/james-sutton-198871.jpg");
+  background-image: url("../images/lidye-petit-300571.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center; 
@@ -77,6 +77,10 @@ input#search{
 .carousel .carousel-item {
   width: 265px;
   height: 265px;
+}
+
+#result-content {
+  color: white;
 }
 
 
