@@ -63,8 +63,8 @@ input#search{
 }
     
 #map {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
   margin-left: 5%;
   border-radius: 3px;
   box-shadow: 3px 5px 6px rgba(0,0,0,0.4);
@@ -92,6 +92,7 @@ input#search{
 
 .items {
   color: white;
+  font-size:1vw;
 }
 
 .deep-orange-text {
@@ -103,5 +104,17 @@ input#search{
     color: white;
 }
 
+.center{
+  background-color: rgb(77,182,172);
+  line-height: 150%;
+}
 
 
+a{
+  color: blue;
+}
+
+.food{
+  width:100%;
+  height:100%;
+}
