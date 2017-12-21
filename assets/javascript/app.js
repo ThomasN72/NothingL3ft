@@ -29,13 +29,14 @@ function mylocation(){
       database.ref('address/').set(pos);
       window.location.replace('results.html')
     }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
+      handleLocationError(true, infoWindow, map.getCenter()); //change this to a modal that says location tracking must be allowed
     });
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
 }
+
 
 var placeSearch, autocomplete, geocoder;
 

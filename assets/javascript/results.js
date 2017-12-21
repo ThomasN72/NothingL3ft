@@ -16,6 +16,124 @@ $(document).ready(function(){
   $('.carousel').carousel();
 })
 
+var topDog =[
+  {
+    item: "Spicy Chicken Sausage",
+    units: 5,
+    price: "$1.75"
+  },
+  {
+    item: "Mango Chicken Sausage",
+    units: 3,
+    price: "$1.50"
+  },
+  {
+    item: "Kielbasa Sausage",
+    units: 6,
+    price: "$1.25"
+  },
+  {
+    address: "2160 Center St, Berkeley, CA 94704" 
+  },
+  {
+    name: "Top Dog"
+  }];
+
+var dojoDog = [
+  {
+    item: "Ninjitsu Dog",
+    units: 5,
+    price: "$3.75"
+  },
+  {
+    item: "Wushu Dog",
+    units: 3,
+    price: "$3.75"
+  },
+  {
+    item: "Sumo Dog",
+    units: 6,
+    price: "$4.00"
+  },
+  {
+    address: "College And Bancroft, Berkeley, CA 94704" 
+  },
+  {
+    name: "Dojo Dog"
+  }];
+
+
+var caspers = [
+  {
+    item: "Original Casper Dog",
+    units: 10,
+    price: "$2.75"
+  },
+  {
+    item: "Polish Sausage",
+    units: 3,
+    price: "$2.75"
+  },
+  {
+    item: "Chili Cheese Dog",
+    units: 6,
+    price: "$3.25"
+  },
+  {
+    address: "5440 Telegraph Ave, Oakland, CA 94609" 
+  },
+  {
+    name: "Caspers Famous Hot Dogs"
+  }];
+
+var smokehouse = [
+  {
+    item: "Hamburger",
+    units: 10,
+    price: "$1.65"
+  },
+  {
+    item: "Hot Dog",
+    units: 5,
+    price: "$2.20"
+  },
+  {
+    item: "French Fries",
+    units: 15,
+    price: "$1.25"
+  },
+  {
+    address: "3115 Telegraph Ave, Berkeley, CA 94705" 
+  },
+  {
+    name: "The Smokehouse"
+  }];
+
+
+var bettes = [
+  {
+    item: "Pie of the Day(slice)",
+    units: 8,
+    price: "$2.50"
+  },
+  {
+    item: "Grilled Cheese Sandwich",
+    units: 3,
+    price: "$3.75"
+  },
+  {
+    item: "Reuben Sandwich",
+    units: 4,
+    price: "$6.25"
+  },
+  {
+    address: "1807 4th St, Berkeley, CA 94710" 
+  },
+  {
+    name: "Bette's Oceanview Diner"
+  }];
+
+
 //this function creates the map; it needs the css styling to render
   var map, infoWindow;
   var markers = [];
@@ -31,45 +149,45 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow;
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-infoWindow.setPosition(pos);
-infoWindow.setContent(browserHasGeolocation ?
-                      'Error: The Geolocation service failed.' :
-                      'Error: Your browser doesn\'t support geolocation.');
-infoWindow.open(map);
-}
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+// infoWindow.setPosition(pos);
+// infoWindow.setContent(browserHasGeolocation ?
+//                       'Error: The Geolocation service failed.' :
+//                       'Error: Your browser doesn\'t support geolocation.');
+// infoWindow.open(map);
+// }
 
 
-$('#submit').on('click', function(){
-  clearMarkers();
-  event.preventDefault();
-  var location = $('#restaurant').val();
-  console.log("location: " + location);
+// $('#submit').on('click', function(){
+//   clearMarkers();
+//   event.preventDefault();
+//   var location = $('#restaurant').val();
+//   console.log("location: " + location);
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      $('#results').html("<h2 class='text-center'> Results for " + location + "</h2>");
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       $('#results').html("<h2 class='text-center'> Results for " + location + "</h2>");
 
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+//       var pos = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       };
 
-      currentMarker(pos)
-      map.setCenter(pos);
-      map.setZoom(12);
+//       currentMarker(pos)
+//       map.setCenter(pos);
+//       map.setZoom(12);
 
-      restaurantFinder(location,pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
+//       restaurantFinder(location,pos);
+//     }, function() {
+//       handleLocationError(true, infoWindow, map.getCenter());
+//     });
 
-    $('#maptext').text("Click on the marker for information about the restaurant");
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}); 
+//     $('#maptext').text("Click on the marker for information about the restaurant");
+//   } else {
+//     // Browser doesn't support Geolocation
+//     handleLocationError(false, infoWindow, map.getCenter());
+//   }
+// }); 
 
 //Function for turning regular address into coordinates using the google geocoder api
 function geoCoder(location,name,addresses){
@@ -105,6 +223,8 @@ function addMarker(location,name,address) {
       content: nameAddress //use variable to fill this with restaurant info like the name/address/rating
   });
 
+  restaurantInfo.open(map, marker); 
+
   marker.addListener('click', function() {
       restaurantInfo.open(map, marker); 
   })
@@ -119,13 +239,15 @@ function currentMarker(location) {
       map:map
   });
 
-  markers.push(marker);
-
   var restaurantInfo = new google.maps.InfoWindow({
-      content: "Searched Location" //use variable to fill this with restaurant info like the name/address/rating
+      content: "Your Searched Location" //use variable to fill this with restaurant info like the name/address/rating
   });
 
-  restaurantInfo.open(map, marker);
+  restaurantInfo.open(map, marker); 
+
+  marker.addListener('click', function() {
+      restaurantInfo.open(map, marker); 
+  })
 }
 
 
@@ -136,11 +258,11 @@ function clearMarkers(){
   }
 };
 
-function restaurantFinder(location,pos){
+function restaurantFinder(name,location,pos){
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://cryptic-headland-94862.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + location + "&latitude=" + pos.lat + "&longitude=" + pos.lng + "&limit=5",
+    "url": "https://cryptic-headland-94862.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + name + "&location=" + location +"&latitude=" + pos.lat + "&longitude=" + pos.lng + "&limit=1",
     "method": "GET",
     "headers": {
       "authorization": "Bearer p7FLN3mZ05l12noAsPo9XnkpnHonn_1O2asNEkYcBDuW0NcQNcilhY-zp0zhaSOTm-TkYVceqKZnzPzUMQorpxo6w8hOWNhc-TYT2tIaYlYbHMnLgcgh-0uDTxczWnYx",
@@ -163,19 +285,20 @@ function restaurantFinder(location,pos){
         var price = dataObj[i].price;
         var addresses = [];
 
-        $('#results').append('<h5>' + name + '</h5>')
+        // $('#results').append('<h5>' + name + '</h5>')
 
+        $('.center').append('<p class="items"><h3 class="text-lighten-2">' + name + '</h3></p>')
         for (var j = 0; j < dataObj[i].location.display_address.length; j++){
-          $('#results').append(dataObj[i].location.display_address[j] + '<br>');
+          $('.center').append('<p class="items">' + dataObj[i].location.display_address[j] + '</p>');
           addresses.push(dataObj[i].location.display_address[j]);
           console.log("address: "+addresses);
         }
 
         geoCoder(addresses,name,addresses)
         addresses = "";
-        $('#results').append(phone + '<br>')
-        $('#results').append('Rating: ' + rating + '<br>')
-        $('#results').append('Price: ' + price + '<br>' + '<br>')
+        $('.center').append('<p class="items">' + phone + '</p>')
+        $('.center').append('<p class="items"> Rating: ' + rating + '</p>')
+        $('.center').append('<p class="items"> Pricing: ' + price + '</p>')
         // var link = dataObj[i].url;
         // $('#results').append('Website: '+ '<a href="' + link + '"Link </a> <br>');
       }
@@ -186,68 +309,62 @@ function restaurantFinder(location,pos){
 
 $(document).ready (function() {
   database.ref().on("value", function(snapshot) {
-    var address = snapshot.val().address
+    var pos = snapshot.val().address
 
-    // console.log(pos)
+    console.log(pos)
 
-    currentMarker(address)
-    map.setCenter(address);
+    currentMarker(pos)
+    map.setCenter(pos);
     map.setZoom(12);
-    infoWindow.setContent("Your Searched Location");
+
+    $('#picture1').on('click', function(event){
+      event.preventDefault();
+      $('.center').empty();
+      clearMarkers()
+      ObjectQuery(topDog,pos);  
+    })
+
+    $('#picture2').on('click', function(event){
+      event.preventDefault();
+      $('.center').empty();
+      clearMarkers()
+      ObjectQuery(dojoDog,pos);  
+    })
+
+    $('#picture3').on('click', function(event){
+      event.preventDefault();
+      $('.center').empty();
+      clearMarkers()
+      ObjectQuery(caspers,pos);  
+    })
+
+    $('#picture4').on('click', function(event){
+      event.preventDefault();
+      $('.center').empty();
+      clearMarkers()
+      ObjectQuery(smokehouse,pos);  
+    })
+
+    $('#picture5').on('click', function(event){
+      event.preventDefault();
+      $('.center').empty();
+      clearMarkers()
+      ObjectQuery(bettes,pos);  
+    })
   })
 });
 
-
-var topDog =
-    [{
-      item: "Spicy Chicken Sausage",
-      units: 5,
-      price: "$1.75"
-    },
-    {
-      item: "Mango Chicken Sausage",
-      units: 3,
-      price: "$1.50"
-    },
-    {
-      item: "Kielbasa Sausage",
-      units: 6,
-      price: "$1.25"
-    }]
-
-var DojoDog = [
-  {
-    item: "Ninjutsu Dog",
-    units: 2,
-    price: "$1.30"
-  },
-  {
-    item: "Kendo Dog",
-    units: 5,
-    price: "$1.80"
-  },
-  {
-    item: "Sumo Dog",
-    units: 3,
-    price: "$2.00"
-  },
-  {
-    item: "Wushu Dog",
-    units: 2,
-    price: "$1.65"
-  }
-];
-
-function ObjectQuery(obj){
-  var objHolder = $('<div id="restaurants">');
-  for (var i = 0; i < obj.length; i++){
+function ObjectQuery(obj,pos){
+  console.log("obj location = " + obj[3].address)
+  for (var i = 0; i < obj.length-2; i++){
     $('.center').append('<p class="items">' + obj[i].units + " " + obj[i].item + ' at a price of ' + obj[i].price + '</p>');
   }
+  restaurantFinder(obj[4].name, obj[3].name, pos)
 }
 
 // ObjectQuery(topDog);
 
-$('#picture1').on('click', function(){
-  $('.center').empty();
-   ObjectQuery(topDog);  
-})
+// $('.carousel-item').on('click', function(){
+//   $('.center').empty();
+//    ObjectQuery(topDog);  
+// })
