@@ -63,7 +63,8 @@ function fillInAddress() {
 }
 
 
-$('#searchBtn').on("click", function(){
+$('#searchBtn').on("click", function(event){
+  event.preventDefault();
   var locationAddress = $('#search').val();
   console.log(locationAddress);
   geoCoder(locationAddress)
@@ -92,3 +93,9 @@ function geoCoder(location){
     window.location.replace('results.html')
   })
 }
+
+
+//this function prevent form submission with <enter>
+$(document).on("keypress", "form", function(event) { 
+    return event.keyCode != 13;
+});
