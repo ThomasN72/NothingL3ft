@@ -1,0 +1,88 @@
+/*body {
+	background-image: url("../background.jpg");
+}*/
+body {
+  background-color:#555;
+}
+
+.navbar-fixed {
+  position: absolute;
+  z-index:999999999;
+}
+
+
+#form1{
+  margin-left:200px;
+}
+#form2{
+  margin: 35% 60% 0% 5%;
+}
+.side-nav li a {
+  text-decoration:none;
+}
+#searchResults2{
+  background-color:#666666;
+}
+#searchResults{
+  background-color:#666666;
+}
+.right li a{
+  padding-right:2em;
+  text-decoration:none
+}
+#placeData {
+	text-align: center;
+}
+#backgroundImg {
+	background-image: url("../images/brandon-morgan-105310.jpg");
+	background-size: cover;
+}
+
+#results {
+  background-image: url("../images/lidye-petit-300571.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+#logo{
+  font-family: 'Architects Daughter', cursive;
+  padding-left: 2%;
+  text-shadow: 3px 5px 6px rgba(0,0,0,0.4);
+}
+
+nav{
+  color: black;
+}
+
+input#search{
+  padding-left: 10px;
+}
+    
+#map {
+  height: 375px;
+  width: 375px;
+  margin-left: 5%;
+  border-radius: 3px;
+  box-shadow: 3px 5px 6px rgba(0,0,0,0.4);
+}
+
+.carousel-item {
+  width: 1.25rem;
+  height: 1rem;
+  border-radius: 5px;
+  box-shadow: 3px 5px 6px rgba(0,0,0,0.4);
+}
+
+.carousel .carousel-item {
+  width: 265px;
+  height: 265px;
+}
+
+#result-content {
+  color: white;
+}
+
+
+
+

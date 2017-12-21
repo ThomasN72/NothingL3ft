@@ -2,71 +2,111 @@
 <html>
 <head>
 	<title>Nothing Left</title>
-<!-- css reset -->
-	<link rel="stylesheet" type="text/css" href="assets/reset.css">
+  <!-- css reset -->
+	<link rel="stylesheet" type="text/css" href="assets/style/reset.css">
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <!-- Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-  <!-- local CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
-  
-</head>
-<body id="backgroundImg">
-<!-- Nav Bar -->
-	<div class="navbar-fixed pizza ">
-  <nav>
-    <div class="nav-wrapper blue-grey">
-      <a href="#!" class="brand-logo deep-orange-text text-lighten-2" style="text-decoration:none">Nothing Left</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-      	<li><a href="login.html" class="btn waves-effect waves-light deep-orange lighten-2">Login</a></li>
-      <li><a href="register.html" class="btn waves-effect waves-light deep-orange lighten-2">Sign Up</a></li>
 
-          </ul>
-       <!-- <form class=" hide-on-med-and-down" id="form1" >
-        <div class="input-field" style="max-width: 400pt;">
-          <input id="search" type="search" required onkeyup="getBlogs(this.value,0);">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-          <div id="searchResults" ></div>
-        </div>
-      </form> -->
-       <ul class="side-nav" id="mobile-demo">
-        <li><a href="signup.php" >Sign Up</a></li>
-    	<li><a href="login.html" >Login</a></li>
-    	<li class="search"> <div class="search-wrapper card input-field">
-          <input type="search" required onkeyup="getBlogs(this.value,1);">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-          <div id="searchResults2"></div>
-        </div></li>
-       </ul>
-      </div>
-      </nav>
-      </div>
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 
-<!--Main Section -->
-  <div>
-    <form id="form2" >
-        <div class="input-field" style="max-width: 100%;">
-          <input id="search" type="search" required onkeyup="getBlogs(this.value,0);">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-          <div id="searchResults" ></div>
-        </div>
-    </form>
-  </div>
-<!-- Jquery -->
-<script
+  <!-- Jquery -->
+  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-  </script>
-  <!-- local JS -->
-  <script src="assets/logic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--   firebase-->
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+
+  <!-- local CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+
+</head>
+
+<body id="backgroundImg">
+<!-- Nav Bar -->
+<!--   <div class="navbar-fixed pizza ">-->  
+<div class="navbar-fixed transparent">
+  <nav>
+    <div class="nav-wrapper blue-grey">
+      <a href="#!" id="logo" class="brand-logo deep-orange-text text-lighten-2">NothingL3ft</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger button1" href="#modal1">sign in</a>
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <form>
+              <div class="modal-content">
+                <h4>Sign in now!</h4>
+                <p>Email:</p>
+                <input type="email" class="userName" placeholder="Email" required>
+                <p>Password:</p>
+                <input type="password" class="userPassword" placeholder="Password">
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat signIn">Sign in</a>
+              </div>
+            </form>
+          </div>
+        </li>
+        <li class="button3">
+          <a class="waves-effect waves-light btn modal-trigger button2" href="#modal2">sign up</a>
+
+          <!-- Modal Structure -->
+          <div id="modal2" class="modal">
+              <div class="modal-content">
+                <h4>Sign up now!</h4>
+                <span class="userId1 waves-effect waves-light btn" data-center="buyer">Buyer</span>/<span class="userId2" data-center="restaurant">Restaurant</span>
+                <p>Email:</p>
+                <input type="email" class="email" placeholder="Email">
+                <p>Password:</p>
+                <input type="password" class="password" placeholder="Password">
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat signUp">Sign up</a>
+              </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>  
+<!--   </div> -->
+<!--Main Section -->
+  <div class="container">
+    <div class="row">
+      <div class="col l11">
+        <form id="form2" >
+            <div class="input-field">
+              <input id="search" type="search" placeholder="Address, city, zip code" required > <!-- what is this get blogs thing? -->
+            </div>
+
+            <div>
+                <button class="btn" id="searchBtn" type="button"> Search
+                <button class="btn" id="currentlocation" type="button"> Use Current Location
+                <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- local JS -->
+<!-- <script src="assets/logic.js"></script>
+<<<<<<< HEAD
+ --><script src="login.js"></script>
+ <script src="login.js"></script> -->
+    <script src="assets/javascript/app.js"></script>
+    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKLvcypZ9bmiAHFyHxIN1RgOuIjd0wJZ8&libraries=places&callback=initAutocomplete" async defer></script>
+
 </body>
 </html>
