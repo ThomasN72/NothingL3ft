@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
   	var number = 0
-  	console.log("userLogged")
+  	// console.log("userLogged")
   	database.ref("/userInfo").child(user.uid).on("value", function(snapshot) {
   		// console.log(Object.keys(snapshot.val()[0]))
   		// console.log(snapshot.val().itemsForSales==null)
@@ -24,12 +24,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 	  		for(var i=0; i<dataDetails.length; i++){
 		  		var items = Object.keys(snapshot.val().itemsForSales[i])
-		  		console.log("items",items)
-		  		console.log(dataDetails)
-		  		console.log(dataDetails.length)
-		  		console.log(dataDetails[i])
-		  		console.log(dataDetails[i][items])
-		  		console.log("i",i)
+		  		// console.log("items",items)
+		  		// console.log(dataDetails)
+		  		// console.log(dataDetails.length)
+		  		// console.log(dataDetails[i])
+		  		// console.log(dataDetails[i][items])
+		  		// console.log("i",i)
 	  			var itemPicture = dataDetails[i][items].itemPicture	
 	  			var itemName = dataDetails[i][items].itemName
 	  			var itemPrice = dataDetails[i][items].itemPrice
@@ -52,13 +52,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 	  			})
 	  		}
   		}else{
-  			console.log("wrong")
+  			// console.log("wrong")
   		}
   	})
   	number++
   }else {
 	    // No user is signed in.
-	  	console.log("userNotLogged")
+	  	// console.log("userNotLogged")
 	}
 })
 

@@ -173,37 +173,6 @@ function initMap() {
 // }
 
 
-// $('#submit').on('click', function(){
-//   clearMarkers();
-//   event.preventDefault();
-//   var location = $('#restaurant').val();
-//   console.log("location: " + location);
-
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       $('#results').html("<h2 class='text-center'> Results for " + location + "</h2>");
-
-//       var pos = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude
-//       };
-
-//       currentMarker(pos)
-//       map.setCenter(pos);
-//       map.setZoom(12);
-
-//       restaurantFinder(location,pos);
-//     }, function() {
-//       handleLocationError(true, infoWindow, map.getCenter());
-//     });
-
-//     $('#maptext').text("Click on the marker for information about the restaurant");
-//   } else {
-//     // Browser doesn't support Geolocation
-//     handleLocationError(false, infoWindow, map.getCenter());
-//   }
-// }); 
-
 //Function for turning regular address into coordinates using the google geocoder api
 function geoCoder(location,name,addresses){
   var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+ location + "&key=AIzaSyBpHkoMadHxCiRan1yfwVQ85q2ZxLiLOGI"
@@ -212,10 +181,10 @@ function geoCoder(location,name,addresses){
    url: queryURL,
    method: "GET"
    }).done(function(response) {
-    console.log(response);
+    // console.log(response);
     var results = response.data;
     var coords = response.results["0"].geometry.location;
-    console.log(coords)
+    // console.log(coords)
 
     addMarker(coords,name,addresses)
   })
@@ -238,10 +207,8 @@ function addMarker(location,name,address) {
       content: nameAddress //use variable to fill this with restaurant info like the name/address/rating
   });
 
-  // restaurantInfo.open(map, marker); 
-
   restaurantInfo.open(map, marker);
-  
+
   marker.addListener('click', function() {
       restaurantInfo.open(map, marker); 
   })
@@ -291,11 +258,11 @@ function restaurantFinder(name,location,pos){
   }
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
+    // console.log(response);
 
     var dataObj = response.businesses
     var localList = dataObj;
-    console.log(dataObj);
+    // console.log(dataObj);
 
       for (var i = 0; i < dataObj.length; i++){
         var name = dataObj[i].name;
@@ -305,13 +272,11 @@ function restaurantFinder(name,location,pos){
         var addresses = [];
         var link = dataObj[i].url;
 
-        // $('#results').append('<h5>' + name + '</h5>')
-
         $('.center').append('<p class="items"><h3 class="text-lighten-2">' + name + '</h3></p>')
         for (var j = 0; j < dataObj[i].location.display_address.length; j++){
           $('.center').append('<p class="items">' + dataObj[i].location.display_address[j] + '</p>');
           addresses.push(dataObj[i].location.display_address[j]);
-          console.log("address: "+addresses);
+          // console.log("address: "+addresses);
         }
 
         geoCoder(addresses,name,addresses)
@@ -330,7 +295,7 @@ $(document).ready (function() {
   database.ref().on("value", function(snapshot) {
     var pos = snapshot.val().address
 
-    console.log(pos)
+    // console.log(pos)
 
     currentMarker(pos)
     map.setCenter(pos);
@@ -379,10 +344,7 @@ $(document).ready (function() {
 });
 
 function ObjectQuery(obj,pos){
-  console.log("obj location = " + obj[3].address)
-  // for (var i = 0; i < obj.length-2; i++){
-  //   $('.center').append('<p class="items">' + obj[i].units + " " + obj[i].item + ' at a price of ' + obj[i].price + '</p>');
-  // }
+  // console.log("obj location = " + obj[3].address)
     for (var i = 0; i < obj.length-2; i++){
     var holder = $('<div class="col s4">')
     $(holder).append('<img class="food" src="'+obj[i].image+ '" />')
@@ -393,10 +355,3 @@ function ObjectQuery(obj,pos){
   }
   restaurantFinder(obj[4].name, obj[3].name, pos)
 }
-
-// ObjectQuery(topDog);
-
-// $('.carousel-item').on('click', function(){
-//   $('.center').empty();
-//    ObjectQuery(topDog);  
-// })

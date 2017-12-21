@@ -25,15 +25,15 @@ function mylocation(){
         lng: position.coords.longitude
       };
 
-      console.log(pos)
+      // console.log(pos)
       database.ref('address/').set(pos);
       window.location.replace('results.html')
     }, function() {
-      handleLocationError(true, infoWindow, map.getCenter()); //change this to a modal that says location tracking must be allowed
+      handleLocationError(true, infoWindow, map.getCenter()); //remove this function and change this to a modal that says location tracking must be allowed
     });
   } else {
     // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
+    handleLocationError(false, infoWindow, map.getCenter());  //remove this function and change this to a modal that says location tracking must be allowed
   }
 }
 
@@ -67,7 +67,7 @@ function fillInAddress() {
 $('#searchBtn').on("click", function(event){
   event.preventDefault();
   var locationAddress = $('#search').val();
-  console.log(locationAddress);
+  // console.log(locationAddress);
   geoCoder(locationAddress)
   $('#search').val("");
 })
@@ -85,10 +85,10 @@ function geoCoder(location){
    url: queryURL,
    method: "GET"
    }).done(function(response) {
-    console.log(response);
+    // console.log(response);
     var results = response.data;
     var pos = response.results["0"].geometry.location;
-    console.log("pos :" + pos)
+    // console.log("pos :" + pos)
     database.ref('address/').set(pos);
   }).then(function(){
     window.location.replace('results.html')

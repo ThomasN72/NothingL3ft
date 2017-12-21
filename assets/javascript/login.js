@@ -31,16 +31,16 @@ var displayName;
 	$(".signIn").on("click", function(){
 		email = $(".userName").val()
 		password = $(".userPassword").val()
-		console.log(email)
-		console.log(password)
+		// console.log(email)
+		// console.log(password)
 		firebase.auth().signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
    			}).catch(function(error) {
 			  	var errorCode = error.code;
 			  	var errorMessage = error.message;
-			  	console.log(errorMessage)
+			  	// console.log(errorMessage)
 		}).then(function(){
 			user = firebase.auth().currentUser;
-			console.log(user)
+			// console.log(user)
 			firebase.auth().onAuthStateChanged(function(user) {
 			 	if (user.displayName == "restaurant") {
 				    // User is signed in.
@@ -52,7 +52,7 @@ var displayName;
 
 
 			  } else if(user.displayName == "buyer") {
-			  		console.log("correct")
+			  		// console.log("correct")
 			    	// User is signed out.
 				    $(".button1").detach()
 				    $(".button2").detach()				
@@ -68,8 +68,8 @@ var displayName;
 	$(".signUp").on("click", function(){
 		email = $(".email").val()
 		password = $(".password").val()
-		console.log(email)
-		console.log(password)
+		// console.log(email)
+		// console.log(password)
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 			// Handle Errors here.
 			var errorCode = error.code;
@@ -85,12 +85,12 @@ var displayName;
 					// console.log(user.email);
 				} else {
 				    // User is signed out.
-					console.log("NOPE")
+					// console.log("NOPE")
 				}
 			});
 		}).then(function(){
 			user = firebase.auth().currentUser;
-			console.log(user)
+			// console.log(user)
 			database.ref("/userInfo").child(user.uid).set({
 				email,
 				password,
