@@ -63,7 +63,8 @@ function fillInAddress() {
 }
 
 
-$('#searchBtn').on("click", function(){
+$('#searchBtn').on("click", function(event){
+  event.preventDefault();
   var locationAddress = $('#search').val();
   console.log(locationAddress);
   geoCoder(locationAddress)
