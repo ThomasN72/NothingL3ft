@@ -1,15 +1,15 @@
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCXoshqAsJV4F6SLVUOkjRavjM6OsUJ35w",
-  authDomain: "nothingleft-9ed3b.firebaseapp.com",
-  databaseURL: "https://nothingleft-9ed3b.firebaseio.com",
-  projectId: "nothingleft-9ed3b",
-  storageBucket: "nothingleft-9ed3b.appspot.com",
-  messagingSenderId: "38778897751"
-};
+// // Initialize Firebase
+// var config = {
+//   apiKey: "AIzaSyCXoshqAsJV4F6SLVUOkjRavjM6OsUJ35w",
+//   authDomain: "nothingleft-9ed3b.firebaseapp.com",
+//   databaseURL: "https://nothingleft-9ed3b.firebaseio.com",
+//   projectId: "nothingleft-9ed3b",
+//   storageBucket: "nothingleft-9ed3b.appspot.com",
+//   messagingSenderId: "38778897751"
+// };
 
-firebase.initializeApp(config);
-var database = firebase.database()
+// firebase.initializeApp(config);
+// var database = firebase.database()
 
 var email;
 var password;

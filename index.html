@@ -3,7 +3,7 @@
 <head>
 	<title>Nothing Left</title>
   <!-- css reset -->
-	<link rel="stylesheet" type="text/css" href="assets/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/style/reset.css">
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
@@ -84,12 +84,18 @@
   <div class="container">
     <div class="row">
       <div class="col l11">
-      <form id="form2" >
-          <div class="input-field">
-            <input id="search" type="search" placeholder="Address, city, zip code" required onkeyup="getBlogs(this.value,0);">
-          </div>
-      </form>
-    </div>
+        <form id="form2" >
+            <div class="input-field">
+              <input id="search" type="search" placeholder="Address, city, zip code" required onkeyup="getBlogs(this.value,0);"> <!-- what is this get blogs thing? -->
+            </div>
+
+            <div>
+                <button class="btn" id="currentlocation" type="button"> Use Current Location
+                <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+      </div>
     </div>
   </div>
 <!-- local JS -->

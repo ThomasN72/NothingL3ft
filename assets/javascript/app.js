@@ -1,3 +1,16 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCXoshqAsJV4F6SLVUOkjRavjM6OsUJ35w",
+    authDomain: "nothingleft-9ed3b.firebaseapp.com",
+    databaseURL: "https://nothingleft-9ed3b.firebaseio.com",
+    projectId: "nothingleft-9ed3b",
+    storageBucket: "nothingleft-9ed3b.appspot.com",
+    messagingSenderId: "38778897751"
+  };
+  firebase.initializeApp(config);
+
+var database = firebase.database();
+
 $(document).ready(function(){
   $('.carousel').carousel();
 })
@@ -67,10 +80,11 @@ function mylocation(){
         lng: position.coords.longitude
       };
 
-      currentMarker(pos)
-      map.setCenter(pos);
-      map.setZoom(12);
-      infoWindow.setContent("Your Current Location");
+      $('#search').val(pos.lat + ", " + pos.lng);
+      // currentMarker(pos)
+      // map.setCenter(pos);
+      // map.setZoom(12);
+      // infoWindow.setContent("Your Current Location");
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -216,6 +230,15 @@ function codeAddress(address) {
 
 function fillInAddress() {
   var place = autocomplete.getPlace();
-  alert(place.place_id);
-  //   codeAddress(document.getElementById('autocomplete').value);
+  var locationAddress = $('#search').val();
+  console.log(locationAddress);
+
+  database.ref('address/').set(locationAddress);
 }
+
+$( document ).ready(function() {
+  $('#currentlocation').click(function(){
+    mylocation();
+  });
+});
+
