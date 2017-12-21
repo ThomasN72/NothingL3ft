@@ -30,3 +30,7 @@
 nav{
   color: black;
 }
+
+#currentlocation {
+  margin-top: 7px;
+}

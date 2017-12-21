@@ -57,6 +57,7 @@ nav{
 
 input#search{
   padding-left: 10px;
+  margin-bottom: 10px;
 }
     
 #map {
@@ -80,6 +81,14 @@ input#search{
 }
 
 #result-content {
+  color: white;
+}
+
+#currentlocation {
+  margin-top: 7px;
+}
+
+.items {
   color: white;
 }
 
