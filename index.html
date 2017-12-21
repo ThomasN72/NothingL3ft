@@ -6,9 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/style/reset.css">
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
   <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-
   <!-- Jquery -->
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -60,30 +58,33 @@
         <li class="button3">
           <a class="waves-effect waves-light btn modal-trigger button2" href="#modal2">sign up</a>
 
-          <!-- Modal Structure -->
-          <div id="modal2" class="modal">
-              <div class="modal-content">
-                <h4>Sign up now!</h4>
-                <span class="userId1 waves-effect waves-light btn" data-center="buyer">Buyer</span>/<span class="userId2" data-center="restaurant">Restaurant</span>
-                <p>Email:</p>
-                <input type="email" class="email" placeholder="Email">
-                <p>Password:</p>
-                <input type="password" class="password" placeholder="Password">
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat signUp">Sign up</a>
-              </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>  
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Sign up now!</h4>
+              <span class="userId1 waves-effect waves-light btn" data-center="buyer">Buyer</span>/<span class="userId2" data-center="restaurant">Restaurant</span>
+              <p>Email:</p>
+              <input type="email" class="email" placeholder="Email">
+              <p>Password:</p>
+              <input type="password" class="password" placeholder="Password">
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat signUp">Sign up</a>
+            </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
 <!--   </div> -->
 <!--Main Section -->
   <div class="container">
     <div class="row">
       <div class="col l11">
+
         <form id="form2" >
             <div class="input-field">
               <input id="search" type="search" placeholder="Address, city, zip code" required onkeyup="getBlogs(this.value,0);"> <!-- what is this get blogs thing? -->
@@ -100,11 +101,10 @@
   </div>
 <!-- local JS -->
 <!-- <script src="assets/logic.js"></script>
-<<<<<<< HEAD
+
  --><script src="login.js"></script>
- <script src="login.js"></script> -->
     <script src="assets/javascript/app.js"></script>
-    
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKLvcypZ9bmiAHFyHxIN1RgOuIjd0wJZ8&libraries=places&callback=initAutocomplete" async defer></script>
 
 </body>
