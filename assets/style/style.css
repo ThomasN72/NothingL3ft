@@ -36,6 +36,8 @@ body {
 #backgroundImg {
 	background-image: url("../images/brandon-morgan-105310.jpg");
 	background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 #results {
@@ -92,6 +94,14 @@ input#search{
   color: white;
 }
 
+.deep-orange-text {
+    color: white;
+}
+
+
+.text-lighten-2 {
+    color: white;
+}
 
 
 
