@@ -92,3 +92,8 @@ function geoCoder(location){
     window.location.replace('results.html')
   })
 }
+
+//this function prevent form submission with <enter>
+$(document).on("keypress", "form", function(event) { 
+    return event.keyCode != 13;
+});
