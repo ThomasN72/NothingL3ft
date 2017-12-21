@@ -60,12 +60,15 @@ function codeAddress(address) {
 
 function fillInAddress() {
   var place = autocomplete.getPlace();
+}
+
+
+$('#searchBtn').on("click", function(){
   var locationAddress = $('#search').val();
   console.log(locationAddress);
   geoCoder(locationAddress)
   $('#search').val("");
-  window.location.replace('results.html')
-}
+})
 
 
 $('#currentlocation').click(function(){
@@ -83,7 +86,9 @@ function geoCoder(location){
     console.log(response);
     var results = response.data;
     var pos = response.results["0"].geometry.location;
-    console.log(pos)
+    console.log("pos :" + pos)
     database.ref('address/').set(pos);
+  }).then(function(){
+    window.location.replace('results.html')
   })
 }
