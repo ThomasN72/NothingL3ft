@@ -68,10 +68,8 @@ $('#searchBtn').on("click", function(){
   console.log(locationAddress);
   geoCoder(locationAddress)
   $('#search').val("");
-  // window.location.replace('results.html')
-  console.log("")
-
 })
+
 
 $('#currentlocation').click(function(){
   mylocation();
@@ -89,8 +87,6 @@ function geoCoder(location){
     var results = response.data;
     var pos = response.results["0"].geometry.location;
     console.log("pos :" + pos)
-    // database.ref('address/').set(null);
-    
     database.ref('address/').set(pos);
   }).then(function(){
     window.location.replace('results.html')
