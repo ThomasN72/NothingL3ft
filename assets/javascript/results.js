@@ -196,3 +196,58 @@ $(document).ready (function() {
     infoWindow.setContent("Your Searched Location");
   })
 });
+
+
+var topDog =
+    [{
+      item: "Spicy Chicken Sausage",
+      units: 5,
+      price: "$1.75"
+    },
+    {
+      item: "Mango Chicken Sausage",
+      units: 3,
+      price: "$1.50"
+    },
+    {
+      item: "Kielbasa Sausage",
+      units: 6,
+      price: "$1.25"
+    }]
+
+var DojoDog = [
+  {
+    item: "Ninjutsu Dog",
+    units: 2,
+    price: "$1.30"
+  },
+  {
+    item: "Kendo Dog",
+    units: 5,
+    price: "$1.80"
+  },
+  {
+    item: "Sumo Dog",
+    units: 3,
+    price: "$2.00"
+  },
+  {
+    item: "Wushu Dog",
+    units: 2,
+    price: "$1.65"
+  }
+];
+
+function ObjectQuery(obj){
+  var objHolder = $('<div id="restaurants">');
+  for (var i = 0; i < obj.length; i++){
+    $('.center').append('<p class="items">' + obj[i].units + " " + obj[i].item + ' at a price of ' + obj[i].price + '</p>');
+  }
+}
+
+// ObjectQuery(topDog);
+
+$('#picture1').on('click', function(){
+  $('.center').empty();
+   ObjectQuery(topDog);  
+})
