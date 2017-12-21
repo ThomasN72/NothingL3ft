@@ -284,6 +284,7 @@ function restaurantFinder(name,location,pos){
         var rating = dataObj[i].rating;
         var price = dataObj[i].price;
         var addresses = [];
+        var link = dataObj[i].url;
 
         // $('#results').append('<h5>' + name + '</h5>')
 
@@ -299,8 +300,7 @@ function restaurantFinder(name,location,pos){
         $('.center').append('<p class="items">' + phone + '</p>')
         $('.center').append('<p class="items"> Rating: ' + rating + '</p>')
         $('.center').append('<p class="items"> Pricing: ' + price + '</p>')
-        // var link = dataObj[i].url;
-        // $('#results').append('Website: '+ '<a href="' + link + '"Link </a> <br>');
+        $(".center").append('<p class="items"> <a href=\"'+link+'\" target="_blank">Yelp Link</a> </p>');
       }
   })
 }

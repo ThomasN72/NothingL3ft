@@ -63,8 +63,8 @@ input#search{
 }
     
 #map {
-  height: 375px;
-  width: 375px;
+  height: 400px;
+  width: 400px;
   margin-left: 5%;
   border-radius: 3px;
   box-shadow: 3px 5px 6px rgba(0,0,0,0.4);
