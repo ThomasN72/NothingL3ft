@@ -67,6 +67,9 @@ function fillInAddress() {
 $('#searchBtn').on("click", function(event){
   event.preventDefault();
   var locationAddress = $('#search').val();
+  if (locationAddress === ''){
+    alert('Please enter a correct address');
+  }
   // console.log(locationAddress);
   geoCoder(locationAddress)
   $('#search').val("");

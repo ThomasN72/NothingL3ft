@@ -347,10 +347,10 @@ function ObjectQuery(obj,pos){
   // console.log("obj location = " + obj[3].address)
     for (var i = 0; i < obj.length-2; i++){
     var holder = $('<div class="col s4">')
-    $(holder).append('<img class="food" src="'+obj[i].image+ '" />')
-    $(holder).append('<p class="items">' + obj[i].item + '</p>');
-    $(holder).append('<p class="items"> Quantity: ' + obj[i].units + '</p>');
-    $(holder).append('<p class="items"> Price: ' + obj[i].price+ '</p>');
+    $(holder).append('<img class="food" src="'+ obj[i].image + '" />')
+    $(holder).append('<h6 class="items">' + obj[i].item + '</h6>');
+    $(holder).append('<h6 class="items"> Quantity: ' + obj[i].units + '</h6>');
+    $(holder).append('<h6 class="items"> Price: ' + obj[i].price+ '</h6>');
     $("#pictureholder").append(holder);
   }
   restaurantFinder(obj[4].name, obj[3].name, pos)
