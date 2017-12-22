@@ -69,7 +69,7 @@ $('#searchBtn').on("click", function(event){
   var locationAddress = $('#search').val();
   if (locationAddress === ''){
     //alert('Please enter a correct address');
-    $('#modal3').modal();
+    $('#modal3').modal('show');
   }
   // console.log(locationAddress);
   geoCoder(locationAddress)
