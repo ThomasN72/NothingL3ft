@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 var database = firebase.database()
 var itemNumber = 0;
 
-firebase.auth().onAuthStateChanged(function(user) {
+/*firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
   	var number = 0
@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	    // No user is signed in.
 	  	// console.log("userNotLogged")
 	}
-})
+})*/
 
 $(".addItem").on("click",function(){
 	user = firebase.auth().currentUser;
